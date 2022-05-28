@@ -10,7 +10,7 @@ function App() {
       <Nav />
       <main>
         <Projects></Projects>
-        <About />
+        <About></About>
       </main>
     </div>
   );

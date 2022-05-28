@@ -14,7 +14,7 @@ function Nav() {
             language: "HTML & CSS",
         },
         {
-            name: 'wet nose adoption',
+            name: 'wet Nose Adoption',
             description: 'Html, CSS, and Javascript'
         },
         {
@@ -23,17 +23,18 @@ function Nav() {
         },
     ]);
 
+    function categorySelected(name) {
+        console.log(`${name} clicked`)
+    }
+
     const [currentCategory, setCurrentCategory] = useState(categories[0])
 
     return (
         <header className="flex-row px-1">
             <h2>
                 <a data-testid="link" href="/">
-                    <span role="img" aria-label="camera">
-                        {" "}
-                        📸
-                    </span>{" "}
-                    Oh Snap!
+
+                    K-Von Madison
                 </a>
             </h2>
             <nav>
@@ -53,7 +54,7 @@ function Nav() {
                             }`} key={category.name}>
                             <span
                                 onClick={() => {
-                                    setCurrentCategory(category)
+                                    setCurrentCategory(category.name)
                                 }}
                             >
                                 {capitalizeFirstLetter(category.name)}
