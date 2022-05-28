@@ -6,10 +6,6 @@ function Nav() {
     const [categories] = useState([
 
         {
-            name: 'project',
-            description: 'A list of all projects',
-        },
-        {
             name: "Run Buddy",
             language: "HTML & CSS",
         },
