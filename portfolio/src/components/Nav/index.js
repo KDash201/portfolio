@@ -1,48 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { capitalizeFirstLetter } from "../../utils/helpers"
 
-function Nav() {
+function Nav(props) {
 
-    const [categories] = useState([
+    const {
+        categories = [],
+        setCurrentCategory,
+        currentCategory,
+    } = props;
 
-        {
-            name: "Run Buddy",
-            language: "HTML & CSS",
-        },
-        {
-            name: 'wet Nose Adoption',
-            description: 'Html, CSS, and Javascript'
-        },
-        {
-            name: "Heat",
-            description: "Javascript, React, GraphQL and Express",
-        },
-    ]);
+    useEffect(() => {
+        document.title = capitalizeFirstLetter(currentCategory.name);
+    }, [currentCategory]);
 
-    function categorySelected(name) {
-        console.log(`${name} clicked`)
-    }
 
-    const [currentCategory, setCurrentCategory] = useState(categories[0])
+    // function categorySelected(name) {
+    //     console.log(`${name} clicked`)
+    // }
+
 
     return (
         <header className="flex-row px-1">
             <h2>
                 <a data-testid="link" href="/">
-
                     K-Von Madison
                 </a>
             </h2>
             <nav>
                 <ul className="flex-row">
                     <li className="mx-2">
-                        <a
-                            href="#about"
-                        >
+                        <a data-testid="about" href="#about">
                             About me
                         </a>
                     </li>
-                    <li>
+                    <li className="mx-2">
                         <span>Contact</span>
                     </li>
                     {categories.map((category) => (
